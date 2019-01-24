@@ -4,7 +4,7 @@ USE module_rf;
 CREATE TABLE user(
 id INT PRIMARY KEY AUTO_INCREMENT,
 user VARCHAR(255),
-idtag INT,
+idtag VARCHAR(12),
 status INT,
 create_datetime DATETIME,
 modified_date DATETIME

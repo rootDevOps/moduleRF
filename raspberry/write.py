@@ -1,17 +1,20 @@
-import requests, time
+#!/usr/dev/env python
 import RPi.GPIO as GPIO
 import SimpleMFRC522
+import requests, time
+
 
 reader = SimpleMFRC522.SimpleMFRC522()
 
 try:
-    text = raw_input('Ingresar usuario: ')
-    print('Acercar el tag ...')
-    reader.write(text)
-    print('Listo!')
+    text = raw_input('Ingresar Usuario: ')
+    print('Acercar el Tag correspondiente')
     id, text_old = reader.read()
-    r = requests.post("http://localhost/module_rf/web/controllers/controller_user.php", data={'submit': 'Update', 'user': text, 'tag': id })
+    print('Usuario anterior: ' + text_old)
+    reader.write(text)
+    print('Usuario actual: ' + text)
+    requests.post("/web/controllers/controller_user.php", data={'submit': 'Update', 'user': text, 'tag': id })
+    print('Listo')
 
 finally:
     GPIO.cleanup()
-    

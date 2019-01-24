@@ -32,6 +32,7 @@ if(isset($_POST['submit'])){
 			$conn = @new Users();
 			$data = checkDatosUpdate($_POST['user'],$_POST['tag']);
 			$conn->updateUser($data);
+
 		break;
 
 		default:

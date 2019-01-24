@@ -15,7 +15,7 @@ class Records{
 	function insertRecord($data){
 		$link = $this->link;
 		if (mysqli_connect_errno()){ printf("Falló la conexión: %s\n", mysqli_connect_error()); exit(); }
-		$query = "INSERT INTO record(iduser,create_datetime, modified_date) VALUES((SELECT id FROM user WHERE idtag = $data ),now(),now());";
+		$query = "INSERT INTO record(iduser,create_datetime, modified_date) VALUES((SELECT id FROM user WHERE idtag = '$data' ),now(),now());";
 		if ($result = mysqli_query($link, $query)){ return TRUE; }else{ return FALSE; }
 	}
 	function updateRecord($data){
