@@ -1,0 +1,19 @@
+CREATE DATABASE module_rf;
+USE module_rf;
+
+CREATE TABLE user(
+id INT PRIMARY KEY AUTO_INCREMENT,
+user VARCHAR(255),
+idtag INT,
+status INT,
+create_datetime DATETIME,
+modified_date DATETIME
+) ENGINE=INNODB;
+
+CREATE TABLE record(
+id INT PRIMARY KEY AUTO_INCREMENT,
+iduser INT,
+create_datetime DATETIME,
+modified_date DATETIME,
+FOREIGN KEY (iduser) REFERENCES user(id) ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=INNODB;
