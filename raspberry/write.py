@@ -13,7 +13,8 @@ try:
     print('Usuario anterior: ' + text_old)
     reader.write(text)
     print('Usuario actual: ' + text)
-    requests.post("/web/controllers/controller_user.php", data={'submit': 'Update', 'user': text, 'tag': id })
+    idstr = str(id)
+    requests.post("/web/controllers/controller_user.php", data={'submit': 'Update', 'user': text, 'tag': idstr })
     print('Listo')
 
 finally:

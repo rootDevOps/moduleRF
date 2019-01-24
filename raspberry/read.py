@@ -6,8 +6,10 @@ import requests, time
 reader = SimpleMFRC522.SimpleMFRC522()
 
 try:
+    print("Esperando tag... ")
     id, text = reader.read();
-    requests.post("/web/controllers/controller_record.php", data={'submit': 'Insert', 'idtag': id })
+    idstr = str(id)
+    requests.post("/web/controllers/controller_record.php", data={'submit': 'Insert', 'idtag': idstr })
     print(id)
     print(text)
 

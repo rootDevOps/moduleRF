@@ -16,13 +16,13 @@ if(isset($_POST['submit'])){
 		case "Insert":
 			require('../models/model_record.php');
 			$conn = @new Records();
-			$conn->insertRecords($_POST['idtag']);
+			$conn->insertRecord($_POST['idtag']);
 		break;
 
 		case "Update":
 			require('../models/model_record.php');
 			$conn = @new Records();
-			$conn->updateRecords($_POST['idrecord']);
+			$conn->updateRecord($_POST['idrecord']);
 		break;
 
 		default:
