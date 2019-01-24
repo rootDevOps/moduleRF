@@ -15,17 +15,15 @@ if(isset($_POST['submit'])){
 
 		case "Insert":
 			require('../models/model_record.php');
-			$conn = @new Record();
+			$conn = @new Records();
 			$data = insertRecords($_POST['idtag']);
 			$conn->insertUser($data);
-			header("Location: ../");
 		break;
 
 		case "Update":
 			require('../models/model_record.php');
-			$conn = @new Record();
+			$conn = @new Records();
 			$conn->updateRecords($_POST['idrecord']);
-			header("Location: ../");
 		break;
 
 		default:

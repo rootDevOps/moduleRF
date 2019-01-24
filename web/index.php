@@ -43,7 +43,7 @@
               console.log(data);
               trHTML += '<tr><td>' + data.id + '</td><td>' + data.create_datetime + '</td></tr>';
           });
-          $('#records_table').append(trHTML);
+          $('#records_table').empty().append(trHTML);
 
         });
 
@@ -67,17 +67,22 @@
         }).done(function(data){
           console.log("done");
           console.log(data);
-          if(data[0].status != 0){
-            $(".status_user").empty().append("Welcome!");
-          }else{
+          if(data[0].status % 2 != 0){
             $(".status_user").empty().append("See you!");
+          }else{
+            $(".status_user").empty().append("Welcome!");
           }
           $(".username_user").empty().append(data[0].user);
         });
 
       }
-      getHistory();
-      getUserStatus();
+
+      setInterval(function(){
+        getHistory();
+        getUserStatus();
+      },500);
+
+
     </script>
 
 

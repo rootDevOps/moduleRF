@@ -1,7 +1,7 @@
 #!/usr/dev/env python
-import time
 import RPi.GPIO as GPIO
 import SimpleMFRC522
+import requests, time
 
 reader = SimpleMFRC522.SimpleMFRC522()
 
