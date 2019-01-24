@@ -16,8 +16,7 @@ if(isset($_POST['submit'])){
 		case "Insert":
 			require('../models/model_record.php');
 			$conn = @new Records();
-			$data = insertRecords($_POST['idtag']);
-			$conn->insertUser($data);
+			$conn->insertRecords($_POST['idtag']);
 		break;
 
 		case "Update":
