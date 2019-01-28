@@ -14,15 +14,15 @@ if(isset($_POST['submit'])){
 		break;
 
 		case "Insert":
-			require('../models/model_record.php');
-			$conn = @new Records();
-			$conn->insertRecord($_POST['idtag']);
-		break;
+			$data = checkDatosInsert($_POST['idtag']);
 
-		case "Update":
+			require('../models/model_user.php');
+			$conn = @new Users();
+			$conn->updateUserStatus($data);
+
 			require('../models/model_record.php');
 			$conn = @new Records();
-			$conn->updateRecord($_POST['idrecord']);
+			$conn->insertRecord($data);
 		break;
 
 		default:
@@ -39,6 +39,4 @@ function checkDatosInsert($idusername){
 	$datos[0] = htmlentities($idusername, ENT_QUOTES);
 	return $datos;
 }
-
-
 ?>

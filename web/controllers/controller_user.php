@@ -16,23 +16,22 @@ if(isset($_POST['submit'])){
 		case "ViewID":
 			require('../models/model_user.php');
 			$conn = @new Users();
-			$result = $conn->selectUserID($_POST['tag']);
+			$result = $conn->selectUserID($_POST['idtag']);
 			echo json_encode($result);
 		break;
 
 		case "Insert":
 			require('../models/model_user.php');
 			$conn = @new Users();
-			$data = checkDatosInsert($_POST['user'],$_POST['tag']);
+			$data = checkDatosInsert($_POST['user'],$_POST['idtag']);
 			$conn->insertUser($data);
 		break;
 
 		case "Update":
 			require('../models/model_user.php');
 			$conn = @new Users();
-			$data = checkDatosUpdate($_POST['user'],$_POST['tag']);
+			$data = checkDatosUpdate($_POST['user'],$_POST['idtag']);
 			$conn->updateUser($data);
-
 		break;
 
 		default:

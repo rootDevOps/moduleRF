@@ -27,7 +27,13 @@ class Users{
 	function updateUser($data){
 		$link = $this->link;
 		if (mysqli_connect_errno()){ printf("Falló la conexión: %s\n", mysqli_connect_error()); exit(); }
-		$query = "UPDATE user SET user='$data[0]',status = status + 1, modified_date=now() WHERE idtag = '$data[1]'; ";
+		$query = "UPDATE user SET user='$data[0]',status = 0, modified_date=now() WHERE idtag = '$data[1]'; ";
+		if ($result = mysqli_query($link,$query)){ $array = array(); while ($row = mysqli_fetch_object($result)){ $array[] = $row; } return $array; }
+	}
+	function updateUserStatus($data){
+		$link = $this->link;
+		if (mysqli_connect_errno()){ printf("Falló la conexión: %s\n", mysqli_connect_error()); exit(); }
+		$query = "UPDATE user SET status = status + 1, modified_date=now() WHERE idtag = '$data[0]'; ";
 		if ($result = mysqli_query($link,$query)){ $array = array(); while ($row = mysqli_fetch_object($result)){ $array[] = $row; } return $array; }
 	}
 }

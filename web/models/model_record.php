@@ -25,6 +25,5 @@ class Records{
 		if ($result = mysqli_query($link,$query)){ $array = array(); while ($row = mysqli_fetch_object($result)){ $array[] = $row; } return $array; }
 	}
 
-
 }
 ?>

@@ -14,7 +14,7 @@ try:
     reader.write(text)
     print('Usuario actual: ' + text)
     idstr = str(id)
-    requests.post("/web/controllers/controller_user.php", data={'submit': 'Update', 'user': text, 'tag': idstr })
+    requests.post("/web/controllers/controller_user.php", data={'submit': 'Update', 'user': text, 'idtag': idstr })
     print('Listo')
 
 finally:
